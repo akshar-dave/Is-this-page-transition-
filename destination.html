@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>We've ARRIVED! ☠</title>
+</head>
+<style media="screen">
+body{
+margin:0;
+user-select:none;
+background:linear-gradient(45deg,#C9D6FF,#E2E2E2);
+}
+*{
+box-sizing:border-box;
+}
+h1{
+margin-top:0;
+margin-bottom:0;
+}
+button{
+border:none;
+background:transparent;
+}
+.loader{
+position:absolute;
+background:#212121;
+height:100vh;
+z-index:999;
+width:100%;
+animation: loader-close-anim 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+@keyframes loader-close-anim{
+  0%{
+    height:100vh;
+  }
+  100%{
+    height:0vh;
+  }
+}
+.content{
+height:100vh;
+width:100%;
+position:relative;
+transition:all 0.2s ease-in;
+opacity:0;
+animation: content-slide-in 0.75s ease 0.35s forwards;
+}
+@keyframes content-slide-in{
+  0%{
+    left:-2%;
+    opacity:0;
+  }
+  100%{
+    left:0%;
+    opacity:1;
+  }
+}
+.content h1{
+font-family:monospace;
+color:#606060;
+font-size:4rem;
+letter-spacing:-2px;
+font-weight:100;
+position:absolute;
+top:25%;
+left:5%;
+}
+.content h1 span{
+animation: cursor-anim 0.5s ease alternate infinite;
+}
+@keyframes cursor-anim{
+0%{
+  opacity:0;
+}
+75%{
+  opacity:1;
+}
+100%{
+  opacity:0;
+}
+}
+.execute{
+padding:5px 0px;
+border-bottom:1px dotted transparent;
+font-size:1.4rem;
+text-transform:uppercase;
+font-family:monospace;
+font-weight:800;
+color:#707070;
+position:absolute;
+top:40%;
+left:5%;
+cursor:pointer;
+outline:none;
+transition:all 0.15s ease;
+}
+.execute:hover{
+border-bottom:1px dotted #212121;
+}
+.execute:active{
+padding-bottom:2.5px;
+}
+.duck{
+  height:150px;
+  width:150px;
+  position:absolute;
+  top:50%;
+  left:5%;
+  opacity:0;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  box-shadow: 0 50px 50px 0 rgba(0,0,0,0.3);
+  cursor: not-allowed;
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  background-image:url('node_modules/tensorflow/models/TFrecords/hmmm🤔.jpg');
+  animation:duck-slide-in 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.6s forwards;
+}
+@keyframes duck-slide-in{
+  0%{
+    top:60%;
+    opacity:0;
+    transform:scale(1.5,1.5) rotate(25deg);
+    box-shadow: 0 50px 50px 0 rgba(0,0,0,0.3);
+  }
+  100%{
+    top:50%;
+    opacity:1;
+    transform:scale(1,1) rotate(0deg);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5);
+  }
+}
+</style>
+<script>
+$( document ).ready(function() {
+  var count=0;
+  $(".execute").click(function(){
+    count=count+1;
+      if(count==1){
+        $(".execute").html('NO.');
+        $(".execute").css("color","#ff0000");
+      }
+      else if(count==2){
+        $(".execute").html('CANT YOU READ THAT? NO');
+        $(".execute").css("color","#ff0000");
+      }
+      else{
+        $(".execute").append('O');
+        $(".execute").css("color","#ff0000");
+      }
+  });
+});
+</script>
+<body>
+  <div class="loader"></div>
+  <section class="content">
+    <h1>Contact the bots? <span>|</span></h1>
+    <button class="execute">Sure</button>
+    <div class="duck"></div>
+  </section>
+</body>
+</html>
